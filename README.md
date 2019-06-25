@@ -33,6 +33,9 @@ You can check the complete category page [here](http://dev-api.mejuri.com/shop/t
 - Save your favorite products and list it
 - Filter by category.
 
+## A technical consideration
+- To avoid CORS errors when fetching the endpoint, your local server should run in `localhost` on port `3100`: 
+`http://localhost:3100/`
 
 ## Libraries
 - Please do not use other JS frameworks, such as JQuery, Angular, etc. Full development in React/Redux is mandatory for this challenge.
