@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
+import CardsGroup from './components/CardsGroup/CardsGroup';
+
+const categories = [ 
+  { title: 'Rings', slug: 'rings' },
+  { title: 'Necklaces', slug: 'necklaces' },
+  { title: 'Earrings', slug: 'earrings' },
+  { title: 'Bracelets + Anklets', slug: 'bracelets' }
+]
+
 function App() {
+  const [ rings, setRings ] = useState([]);
+  const [ necklaces, setNecklaces ] = useState([]);
+  const [ earrings, setEarrings ] = useState([]);
+  const [ bracelets, setBracelets ] = useState([]);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        navbar
       </header>
+      <main>
+        <CardsGroup dataType="rings" data={rings} setData={setRings} />
+      </main>
     </div>
   );
 }
