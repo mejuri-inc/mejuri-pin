@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 const hostname = 'localhost';
 const port = 3000;
 
-const validCategories = [ 'rings' , 'necklaces', 'earrings', 'bracelets' ];
+const validCategories = [ 'rings' , 'pendants', 'earrings', 'bracelets' ];
 
 const mejuriBaseUrl = 'http://dev-api.mejuri.com/api/v1/taxon/collections-by-categories/type/';
 

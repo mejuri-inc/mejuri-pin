@@ -33,7 +33,7 @@ function App() {
         <div className="App">
           <header className="App-header">
             {categories.map(category => {
-              return <Link to={'/' + category.slug}>{category.title}</Link>
+              return <Link key={category.slug} to={'/' + category.slug}>{category.title}</Link>
             })}
             <Link to="/liked">Likes</Link>
           </header>
@@ -41,6 +41,7 @@ function App() {
             {categories.map(category => {
               return (
                 <Route
+                  key={category.slug}
                   path={'/' + category.slug}
                   render={() => <CardsGroupFromService
                     dataType={category.slug}
