@@ -2,5 +2,6 @@ import React from 'react';
 
 export default React.createContext({
     likes: [],
+    likeIds: [],
     setLike: () => {}
 });

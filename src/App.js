@@ -25,11 +25,10 @@ function App() {
 
   const [ likes, setLike ] = useState([]);
   const addLike = (like) => setLike(likes.concat(like));
-  console.log(likes);
 
   return (
     <Router>
-      <LikesContext.Provider value={{ likes: likes, setLike: addLike }} >
+      <LikesContext.Provider value={{ likes: likes, likeIds: likes.map(l => l.id), setLike: addLike }} >
         <div className="App">
           <header className="App-header">
             {categories.map(category => {
