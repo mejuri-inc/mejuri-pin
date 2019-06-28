@@ -3,13 +3,16 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 
 import CardsGroup from './components/CardsGroup/CardsGroup';
+import CardsGroupFromService from './components/CardsGroupFromService/CardsGroupFromService';
+
+import LikesContext from './likes-context';
 
 const categories = [ 
   { title: 'Rings', slug: 'rings' },
   { title: 'Necklaces', slug: 'pendants' },
   { title: 'Earrings', slug: 'earrings' },
   { title: 'Bracelets + Anklets', slug: 'bracelets' }
-]
+];
 
 function App() {
 
@@ -20,29 +23,40 @@ function App() {
     bracelets: []
   });
 
+  const [ likes, setLike ] = useState([]);
+  const addLike = (like) => setLike(likes.concat(like));
+  console.log(likes);
+
   return (
     <Router>
-      <div className="App">
-        <header className="App-header">
-          {categories.map(category => {
-            return <Link to={category.slug}>{category.title}</Link>
-          })}
-        </header>
-        <main>
-          {categories.map(category => {
-            return (
-              <Route
-                path={'/' + category.slug}
-                render={() => <CardsGroup
-                  dataType={category.slug}
-                  data={data[category.slug]}
-                  setData={(d) => { console.log('dddd', data); setData({ ...data, [category.slug]: d })}}
-                />}
-              />
-            );
-          })}
-        </main>
-      </div>
+      <LikesContext.Provider value={{ likes: likes, setLike: addLike }} >
+        <div className="App">
+          <header className="App-header">
+            {categories.map(category => {
+              return <Link to={'/' + category.slug}>{category.title}</Link>
+            })}
+            <Link to="/liked">Likes</Link>
+          </header>
+          <main>
+            {categories.map(category => {
+              return (
+                <Route
+                  path={'/' + category.slug}
+                  render={() => <CardsGroupFromService
+                    dataType={category.slug}
+                    data={data[category.slug]}
+                    setData={(d) => { setData({ ...data, [category.slug]: d })}}
+                  />}
+                />
+              );
+            })}
+            <Route
+              path="/liked"
+              render={() => <CardsGroup data={likes} />}
+            />
+          </main>
+        </div>
+      </LikesContext.Provider>
     </Router>
   );
 }

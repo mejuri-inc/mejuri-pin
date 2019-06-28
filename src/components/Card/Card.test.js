@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CardsGroup from './CardsGroup';
+import Card from './Card';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<CardsGroup />, div);
+  ReactDOM.render(<Card />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
