@@ -5,10 +5,15 @@ const flatProducts = (response) => response.reduce((allProds, subGroup) => {
 }, [])
 
 const CardsGroup = ({ data, dataType, setData }) => {
+  
   useEffect(() => {
-    fetch('http://localhost:3000/categories/' + dataType)
-      .then(response => response.json())
-      .then(response => setData(flatProducts(response)));
+
+    if (!data.length) {
+      
+      fetch('http://localhost:3000/categories/' + dataType)
+        .then(response => response.json())
+        .then(response => setData(flatProducts(response)));
+      }
     }, []);
     
 

@@ -1,30 +1,49 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 
 import CardsGroup from './components/CardsGroup/CardsGroup';
 
 const categories = [ 
   { title: 'Rings', slug: 'rings' },
-  { title: 'Necklaces', slug: 'necklaces' },
+  { title: 'Necklaces', slug: 'pendants' },
   { title: 'Earrings', slug: 'earrings' },
   { title: 'Bracelets + Anklets', slug: 'bracelets' }
 ]
 
 function App() {
-  const [ rings, setRings ] = useState([]);
-  const [ necklaces, setNecklaces ] = useState([]);
-  const [ earrings, setEarrings ] = useState([]);
-  const [ bracelets, setBracelets ] = useState([]);
+
+  const [ data, setData ] = useState({
+    rings: [],
+    pendants: [],
+    earrings: [],
+    bracelets: []
+  });
 
   return (
-    <div className="App">
-      <header className="App-header">
-        navbar
-      </header>
-      <main>
-        <CardsGroup dataType="rings" data={rings} setData={setRings} />
-      </main>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          {categories.map(category => {
+            return <Link to={category.slug}>{category.title}</Link>
+          })}
+        </header>
+        <main>
+          {categories.map(category => {
+            return (
+              <Route
+                path={'/' + category.slug}
+                render={() => <CardsGroup
+                  dataType={category.slug}
+                  data={data[category.slug]}
+                  setData={(d) => { console.log('dddd', data); setData({ ...data, [category.slug]: d })}}
+                />}
+              />
+            );
+          })}
+        </main>
+      </div>
+    </Router>
   );
 }
 
