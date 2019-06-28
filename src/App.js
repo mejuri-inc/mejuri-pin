@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import './App.css';
 
 import CardsGroup from './components/CardsGroup/CardsGroup';
 import CardsGroupFromService from './components/CardsGroupFromService/CardsGroupFromService';
