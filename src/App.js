@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import CardsGroup from './components/CardsGroup/CardsGroup';
-import CardsGroupFromService from './components/CardsGroupFromService/CardsGroupFromService';
+import CardsGrig from './components/CardsGrid/CardsGrid';
+import CardsGrigFromService from './components/CardsFromService/CardsFromService';
 import MobileMenu from './components/MobileMenu/MobileMenu';
 import Navbar from './components/Navbar/Navbar';
 
@@ -42,7 +42,7 @@ function App() {
               <Route
                 key={category.slug}
                 path={'/' + category.slug}
-                render={() => <CardsGroupFromService
+                render={() => <CardsGrigFromService
                   dataType={category.slug}
                   data={data[category.slug]}
                   setData={(d) => { setData({ ...data, [category.slug]: d })}}
@@ -52,7 +52,7 @@ function App() {
           })}
           <Route
             path="/liked"
-            render={() => <CardsGroup data={likes} />}
+            render={() => <CardsGrig data={likes} />}
           />
         </main>
       </LikesContext.Provider>

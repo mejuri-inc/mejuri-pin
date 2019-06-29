@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CardsGroup from './CardsGroup';
+import CardsGroup from './CardsGrid';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import CardsGroup from '../CardsGroup/CardsGroup';
+import CardsGrid from '../CardsGrid/CardsGrid';
 
 const flatProducts = response => response.reduce((allProds, subGroup) => {
   return allProds.concat(subGroup.products);
@@ -15,7 +15,7 @@ const makeUnique = (arr, comp) => {
    return unique;
 }
 
-const CardsGroupFromService = ({ data, dataType, setData }) => {
+const CardsGridFromService = ({ data, dataType, setData }) => {
   useEffect(() => {
     if (!data.length) {
       fetch('http://localhost:3000/categories/' + dataType)
@@ -25,8 +25,8 @@ const CardsGroupFromService = ({ data, dataType, setData }) => {
     }, []);
 
   return (
-    <CardsGroup data={data} />
+    <CardsGrid data={data} />
   );
 };
 
-export default CardsGroupFromService;
+export default CardsGridFromService;
