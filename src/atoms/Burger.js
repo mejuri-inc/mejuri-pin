@@ -1,14 +1,52 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const Burger = () => (
-  <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-    <g>
-      <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
-    </g>
-    <g>
-      <path id="svg_1" d="m4,10l24,0c1.104,0 2,-0.896 2,-2s-0.896,-2 -2,-2l-24,0c-1.104,0 -2,0.896 -2,2s0.896,2 2,2zm24,4l-24,0c-1.104,0 -2,0.896 -2,2s0.896,2 2,2l24,0c1.104,0 2,-0.896 2,-2s-0.896,-2 -2,-2zm0,8l-24,0c-1.104,0 -2,0.896 -2,2s0.896,2 2,2l24,0c1.104,0 2,-0.896 2,-2s-0.896,-2 -2,-2z"/>
-    </g>
-  </svg>
+const Wrapper = styled.div`
+  display: inline-block;
+  height: 40px;
+  position: relative;
+  width: 40px;
+`;
+
+const Line = styled.div`
+  top: 18px;
+
+  &, &:after, &:before {
+    background-color: #333;
+    border-radius: 4px;
+    height: 4px;
+    position: absolute;
+    transition-timing-function: ease;
+    transition-duration: .15s;
+    transition-property: transform;
+    width: 40px;
+  }
+
+  &:before {
+    top: -10px;
+    transform: ${props => props.active ? 'translate3d(-11px,3px,0) rotate(-45deg) scaleX(.5)' : 'none'}
+  }
+
+  &:after {
+    bottom: -10px;
+    transform: ${props => props.active ? 'translate3d(-11px,-3px,0) rotate(45deg) scaleX(.5)' : 'none'};
+}
+
+  &:after, &:before {
+    background-color: #333;
+    border-radius: 4px;
+    content: "";
+    display: block;
+    height: 4px;
+    position: absolute;
+    width: 40px;
+  }
+`;
+
+const Burger = ({ active }) => (
+    <Wrapper>
+      <Line active={active} />
+    </Wrapper>
 );
 
 export default Burger;

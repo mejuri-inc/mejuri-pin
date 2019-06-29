@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CardsGroup from './components/CardsGroup/CardsGroup';
 import CardsGroupFromService from './components/CardsGroupFromService/CardsGroupFromService';
 import MobileMenu from './components/MobileMenu/MobileMenu';
+import Navbar from './components/Navbar/Navbar';
 
 import LikesContext from './likes-context';
 
@@ -26,16 +27,15 @@ function App() {
   const [ likes, setLike ] = useState([]);
   const addLike = (like) => setLike(likes.concat(like));
 
+  const categoriesMenu = categories.map(category => {
+    return <Link key={category.slug} to={'/' + category.slug}>{category.title}</Link>
+  });
+
   return (
     <Router>
       <LikesContext.Provider value={{ likes: likes, likeIds: likes.map(l => l.id), setLike: addLike }} >
+        <Navbar /> 
         <MobileMenu categories={categories} />
-        <header className="App-header">
-          {categories.map(category => {
-            return <Link key={category.slug} to={'/' + category.slug}>{category.title}</Link>
-          })}
-          <Link to="/liked">Likes</Link>
-        </header>
         <main>
           {categories.map(category => {
             return (
