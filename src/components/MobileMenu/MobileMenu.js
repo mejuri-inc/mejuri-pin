@@ -17,7 +17,7 @@ const Styledmenu = styled.ul`
   margin-left: ${props => props.active ? '0' : '-100vw'};
   padding: 120px 0 0 10px;
   position: fixed;
-  transition: margin-left .5s ease-in-out, background-color .4s linear;
+  transition: margin-left .5s ease-in-out, background-color .2s linear;
   width: 100vw;
 
   a {
