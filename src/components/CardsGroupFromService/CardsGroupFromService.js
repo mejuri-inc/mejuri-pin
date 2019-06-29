@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import CardsGroup from '../CardsGroup/CardsGroup';
 
-const flatProducts = (response) => response.reduce((allProds, subGroup) => {
+const flatProducts = response => response.reduce((allProds, subGroup) => {
   return allProds.concat(subGroup.products);
 }, []);
 
