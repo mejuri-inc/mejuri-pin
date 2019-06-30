@@ -8,7 +8,7 @@ import LikeButton from '../LikeButton/LikeButton';
 const StyledSection = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  grid-gap: 1.25rem;;
+  grid-gap: 1.25rem;
   max-width: 1024px;
   margin: auto;
   padding: 3rem 1.25rem;
@@ -24,6 +24,7 @@ const CardsGrid = ({ data }) => {
           </Card>
         </IsOnScreen>
       )}
+      {data.length < 4 ? Array(3).fill(true).map(e => <div />) : null}
     </StyledSection>
   );
 };
