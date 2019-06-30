@@ -6,7 +6,7 @@ import LikeButton from '../LikeButton/LikeButton';
 
 const StyledSection = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   grid-gap: 1.25rem;;
   max-width: 1024px;
   margin: auto;

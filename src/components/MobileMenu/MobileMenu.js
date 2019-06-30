@@ -19,6 +19,7 @@ const Styledmenu = styled.ul`
   position: fixed;
   transition: margin-left .5s ease-in-out, background-color .2s linear;
   width: 100vw;
+  z-index: 3;
 
   a {
     color: #333;
