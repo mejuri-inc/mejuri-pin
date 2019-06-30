@@ -15,6 +15,10 @@ const StyledSection = styled.section`
 `;
 
 const CardsGrid = ({ data }) => {
+  if (!data) {
+    return null;
+  }
+
   return (
     <StyledSection>
       {data.map(product =>
@@ -24,7 +28,7 @@ const CardsGrid = ({ data }) => {
           </Card>
         </IsOnScreen>
       )}
-      {data.length < 4 ? Array(3).fill(true).map(e => <div />) : null}
+      {data.length < 4 ? Array(3).fill(true).map((e, i) => <div key={i} />) : null}
     </StyledSection>
   );
 };

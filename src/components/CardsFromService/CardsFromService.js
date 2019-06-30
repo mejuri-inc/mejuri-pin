@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 
 import CardsGrid from '../CardsGrid/CardsGrid';
 
+const apiBaseUrl = 'http://localhost:3000/categories/';
+
 const flatProducts = response => response.reduce((allProds, subGroup) => {
   return allProds.concat(subGroup.products);
 }, []);
@@ -15,12 +17,13 @@ const makeUnique = (arr, comp) => {
    return unique;
 }
 
-const CardsGridFromService = ({ data, dataType, setData }) => {
+const CardsGridFromService = ({ data = [], dataType = 'rings', setData = () => {} }) => {
   useEffect(() => {
     if (!data.length) {
-      fetch('http://localhost:3000/categories/' + dataType)
+      fetch(apiBaseUrl + dataType)
         .then(response => response.json())
-        .then(response => setData(makeUnique(flatProducts(response), 'id')));
+        .then(response => setData(makeUnique(flatProducts(response), 'id')))
+        .catch(er => console.log(er));
       }
     }, []);
 

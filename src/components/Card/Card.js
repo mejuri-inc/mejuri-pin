@@ -30,7 +30,10 @@ const StyledArticle = styled.article`
   }
 `;
 
-const Card = ({ children, id, name, variant_images }) => {
+const Card = ({ children, name, variant_images }) => {
+  if(!variant_images || variant_images.length < 1) {
+    return null;
+  }
 
   return (
     <StyledArticle

@@ -41,8 +41,11 @@ const StyledButton = styled.button`
     width: 20px;
   `;
 
-
 const LikeButton = ({ product }) => {
+  if(!product) {
+    return null;
+  }
+
   return (
     <LikesContext.Consumer>
       {({ likeIds, setLike }) => {

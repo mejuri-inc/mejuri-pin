@@ -44,6 +44,10 @@ const StyledBurger = styled.button`
 const MobileMenu = ({ categories }) => {
   const [ state, setState ] = useState(false);
 
+  if(!categories) {
+    return null;
+  }
+
   const menuItems = categories.map(c =>
     <li key={c.title}>
       <Link onClick={() => setState(!state)} to={'/' + c.slug}>
