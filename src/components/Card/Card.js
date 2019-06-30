@@ -23,7 +23,10 @@ const StyledArticle = styled.article`
 const Card = ({ children, id, name, variant_images }) => {
 
   return (
-    <StyledArticle bgImage={variant_images[0].attachment_url_small}>
+    <StyledArticle
+      bgImage={variant_images[0].attachment_url_small}
+      title={name}
+    >
       {children}
     </StyledArticle>
   );
