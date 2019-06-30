@@ -25,6 +25,10 @@ const Styledmenu = styled.ul`
     color: #333;
     text-decoration: none;
   }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 const StyledBurger = styled.button`
