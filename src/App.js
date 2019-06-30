@@ -27,29 +27,23 @@ function App() {
   const [ likes, setLike ] = useState([]);
   const addLike = (like) => setLike(likes.concat(like));
 
-  const categoriesMenu = categories.map(category => {
-    return <Link key={category.slug} to={'/' + category.slug}>{category.title}</Link>
-  });
-
   return (
     <Router>
       <LikesContext.Provider value={{ likes: likes, likeIds: likes.map(l => l.id), setLike: addLike }} >
-        <Navbar /> 
+        <Navbar categories={categories} /> 
         <MobileMenu categories={categories} />
         <main>
-          {categories.map(category => {
-            return (
-              <Route
-                key={category.slug}
-                path={'/' + category.slug}
-                render={() => <CardsGrigFromService
-                  dataType={category.slug}
-                  data={data[category.slug]}
-                  setData={(d) => { setData({ ...data, [category.slug]: d })}}
-                />}
-              />
-            );
-          })}
+          {categories.map(category => 
+            <Route
+              key={category.slug}
+              path={'/' + category.slug}
+              render={() => <CardsGrigFromService
+                dataType={category.slug}
+                data={data[category.slug]}
+                setData={(d) => { setData({ ...data, [category.slug]: d })}}
+              />}
+            />
+          )}
           <Route
             path="/liked"
             render={() => <CardsGrig data={likes} />}
