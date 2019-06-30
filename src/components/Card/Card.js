@@ -8,6 +8,7 @@ const StyledArticle = styled.article`
   border-radius: 5px;
   box-shadow: 0px 0px 5px 0px rgba(156,156,156,0.3);
   cursor: pointer;
+  max-width: 12rem;
   min-height: 15rem;
   overflow: hidden;
   position: relative;

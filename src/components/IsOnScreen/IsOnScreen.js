@@ -22,7 +22,7 @@ class IsOnScreen extends React.Component {
       const observer = new IntersectionObserver(this.intersectAction, {
         root: null,
         rootMargin: '0px',
-        threshold: 1.0
+        threshold: 0.5
       });
       observer.observe(this.element);
     }
