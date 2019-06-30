@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import CardsGrig from './components/CardsGrid/CardsGrid';
 import CardsGrigFromService from './components/CardsFromService/CardsFromService';

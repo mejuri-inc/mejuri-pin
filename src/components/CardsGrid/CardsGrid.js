@@ -18,11 +18,9 @@ const CardsGrid = ({ data }) => {
   return (
     <StyledSection>
       {data.map(product =>
-        <IsOnScreen minHeight="15rem">
-          <Card
-            {...product}
-            key={product.id}>
-              <LikeButton product={product} />
+        <IsOnScreen minHeight="15rem" key={product.id}>
+          <Card {...product}>
+            <LikeButton product={product} />
           </Card>
         </IsOnScreen>
       )}

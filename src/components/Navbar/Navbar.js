@@ -51,7 +51,7 @@ const Navbar = ({ categories }) => {
       <FixedNav>
         <StyledNavigationLinks>
           {categories.map(c =>
-            <NavLink to={'/' + c.slug} activeClassName="active">
+            <NavLink to={'/' + c.slug} activeClassName="active" key={c.slug}>
               {c.title}
             </NavLink>
           )}
