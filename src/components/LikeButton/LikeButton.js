@@ -5,10 +5,10 @@ import styled from 'styled-components';
 import Pin from '../../atoms/Pin';
 
 const StyledButton = styled.button`
-  background: gray;
+  background: lightgray;
   border: 0;
   border-bottom-left-radius: 5px;
-  color: white;
+  color: #333;
   cursor: pointer;
   font-family: monospace;
   font-size: 1.2rem;
@@ -22,7 +22,7 @@ const StyledButton = styled.button`
   transition: opacity .3s linear,background-color .3s linear;
 
   &:hover {
-    background-color: darkred;
+    background-color: tomato;
   }
 
   span {
@@ -45,7 +45,7 @@ const StyledButton = styled.button`
 const LikeButton = ({ product }) => {
   return (
     <LikesContext.Consumer>
-      {({ likes, likeIds, setLike }) => {
+      {({ likeIds, setLike }) => {
         const alreadyLiked = likeIds.indexOf(product.id) > -1;
 
         if (alreadyLiked) {
@@ -57,7 +57,7 @@ const LikeButton = ({ product }) => {
             onClick={() => setLike(product)}
           >
             Save
-            <StyledPin><Pin bg="#FFFFFF"/></StyledPin>
+            <StyledPin><Pin bg="#333333"/></StyledPin>
           </StyledButton>
         );
       }}

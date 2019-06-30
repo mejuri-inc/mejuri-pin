@@ -13,9 +13,19 @@ const StyledArticle = styled.article`
   overflow: hidden;
   position: relative;
 
-  &:hover {
+  button {
+    opacity: 1;
+  }
+
+  @media (min-width: 768px) {
     button {
-      opacity: 1;
+      opacity: 0;
+
+    }
+    &:hover {
+      button {
+        opacity: 1;
+      }
     }
   }
 `;
