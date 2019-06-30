@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Card from '../Card/Card';
+import IsOnScreen from '../IsOnScreen/IsOnScreen';
 import LikeButton from '../LikeButton/LikeButton';
 
 const StyledSection = styled.section`
@@ -16,11 +17,15 @@ const StyledSection = styled.section`
 const CardsGrid = ({ data }) => {
   return (
     <StyledSection>
-      {data.map(product => <Card
-        {...product}
-        key={product.id}>
-          <LikeButton product={product} />
-      </Card>)}
+      {data.map(product =>
+        <IsOnScreen minHeight="15rem">
+          <Card
+            {...product}
+            key={product.id}>
+              <LikeButton product={product} />
+          </Card>
+        </IsOnScreen>
+      )}
     </StyledSection>
   );
 };
