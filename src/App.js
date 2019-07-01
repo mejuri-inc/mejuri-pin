@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import CardsGrig from './components/CardsGrid/CardsGrid';
@@ -27,20 +27,25 @@ function App() {
   const [ likes, setLike ] = useState([]);
   const addLike = (like) => setLike(likes.concat(like));
 
+  const updateDataCallback = useCallback(
+    (s, d) => { setData(prevState => ({...prevState, [s]: d }))},
+    []
+  );
+
   return (
     <Router>
       <LikesContext.Provider value={{ likes: likes, likeIds: likes.map(l => l.id), setLike: addLike }} >
         <Navbar categories={categories} /> 
         <MobileMenu categories={categories} />
         <main>
-          {categories.map(category => 
+          {categories.map(category =>
             <Route
               key={category.slug}
               path={'/' + category.slug}
               render={() => <CardsGrigFromService
                 dataType={category.slug}
                 data={data[category.slug]}
-                setData={(d) => { setData({ ...data, [category.slug]: d })}}
+                setData={updateDataCallback}
               />}
             />
           )}

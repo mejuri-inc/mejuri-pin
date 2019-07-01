@@ -17,15 +17,13 @@ const makeUnique = (arr, comp) => {
    return unique;
 }
 
-const CardsGridFromService = ({ data = [], dataType = 'rings', setData = () => {} }) => {
+const CardsGridFromService = ({ data = [], dataType, setData = () => {} }) => {
   useEffect(() => {
-    if (!data.length) {
-      fetch(apiBaseUrl + dataType)
-        .then(response => response.json())
-        .then(response => setData(makeUnique(flatProducts(response), 'id')))
-        .catch(er => console.log(er));
-      }
-    }, []);
+    fetch(apiBaseUrl + dataType)
+      .then(response => response.json())
+      .then(response => setData(dataType, makeUnique(flatProducts(response), 'id')))
+      .catch(er => console.log(er));
+    }, [ setData, dataType ]);
 
   return (
     <CardsGrid data={data} />
