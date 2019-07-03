@@ -29,7 +29,7 @@ class IsOnScreen extends React.Component {
   }
 
   render() {
-    return <div ref={r => this.element = r} style={{ minHeight: this.props.minHeight || '300px',   maxWidth: '12rem' }}>
+    return <div ref={r => this.element = r} style={{ minHeight: this.props.minHeight || '300px' }}>
       {this.state.shouldRender ? this.props.children : null}
     </div>
   }
