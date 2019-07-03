@@ -24,7 +24,7 @@ const FixedNav = styled.div`
     border: 3px solid transparent;
     border-radius: 15px;
     color: #333;
-    font-family: monospace;
+    font-family: sans-serif;
     font-size: 1.5rem;
     padding: 5px 10px;
     margin: 0 10px;

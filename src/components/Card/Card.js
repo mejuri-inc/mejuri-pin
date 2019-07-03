@@ -7,7 +7,6 @@ const StyledArticle = styled.article`
   background-size: cover;
   border-radius: 5px;
   box-shadow: 0px 0px 5px 0px rgba(156,156,156,0.3);
-  cursor: pointer;
   max-width: 12rem;
   min-height: 15rem;
   overflow: hidden;
@@ -17,14 +16,28 @@ const StyledArticle = styled.article`
     opacity: 1;
   }
 
+  .externalLink {
+    bottom: 5px;
+    left: 5px;
+    opacity: 1;
+    position: absolute;
+  }
+
+  .arrow {
+    margin: -6px;
+    margin-right: 0px;
+    transform: rotate(-45deg);
+    width: 20px;
+  }
+
   @media (min-width: 768px) {
-    button {
+    button, .externalLink {
       opacity: 0;
 
     }
     &:hover {
-      button {
-        opacity: 1;
+      button, .externalLink {
+        opacity: .8;
       }
     }
   }
@@ -37,7 +50,7 @@ const Card = ({ children, name, variant_images }) => {
 
   return (
     <StyledArticle
-      bgImage={variant_images[0].attachment_url_small}
+      bgImage={variant_images[1].attachment_url_small}
       title={name}
     >
       {children}

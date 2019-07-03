@@ -7,10 +7,9 @@ import Burger from '../../atoms/Burger';
 const Styledmenu = styled.ul`
   background-color: ${props => props.active ? 'white' : 'rgba(255,255,255,0.4)'};
   color: #333;
-  font-family: monospace;
-  font-size: 18px;
+  font-size: 1.5rem;
   height: 100vh;
-  line-height: 40px;
+  line-height: 1.5;
   list-style: none;
   margin: 0;
   margin-left: -100vw;

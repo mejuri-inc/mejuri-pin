@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Arrow from '../../atoms/Arrow';
 import Card from '../Card/Card';
 import IsOnScreen from '../IsOnScreen/IsOnScreen';
 import LikeButton from '../LikeButton/LikeButton';
+import ExternalLink from '../ExternalLink/ExternalLink';
 
 const StyledSection = styled.section`
   display: grid;
@@ -18,13 +20,16 @@ const CardsGrid = ({ data }) => {
   if (!data) {
     return null;
   }
-
+console.log('daa', data);
   return (
     <StyledSection>
       {data.map(product =>
         <IsOnScreen minHeight="15rem" key={product.id}>
           <Card {...product}>
             <LikeButton product={product} />
+            <ExternalLink to={`https://mejuri.com/shop/products/${product.slug}`}>
+              <Arrow fill="#FFFFFF" />mejuri.com
+            </ExternalLink>
           </Card>
         </IsOnScreen>
       )}

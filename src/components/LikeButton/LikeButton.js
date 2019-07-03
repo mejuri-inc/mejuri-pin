@@ -5,24 +5,23 @@ import styled from 'styled-components';
 import Pin from '../../atoms/Pin';
 
 const StyledButton = styled.button`
-  background: lightgray;
+  background: rgba(0, 0, 0, .4);
   border: 0;
-  border-bottom-left-radius: 5px;
-  color: #333;
+  border-radius: 5px;
+  color: white;
   cursor: pointer;
-  font-family: monospace;
-  font-size: 1.2rem;
-  opacity: 0;
+  font-family: sans-serif;
+  font-size: 1rem;
+  opacity: .8;
   padding: 8px 10px;
-  padding-right: 38px;
+  padding-right: 28px;
   position: absolute;
-  right: 0;
-  text-transform: uppercase;
-  top: 0;
-  transition: opacity .3s linear,background-color .3s linear;
+  right: 5px;
+  top: 5px;
+  transition: opacity .3s linear, background-color .3s linear;
 
   &:hover {
-    background-color: tomato;
+    background-color: rgba(0, 0, 0, .9);
   }
 
   span {
@@ -52,15 +51,15 @@ const LikeButton = ({ product }) => {
         const alreadyLiked = likeIds.indexOf(product.id) > -1;
 
         if (alreadyLiked) {
-          return <StyledPin><Pin bg="#000000"/></StyledPin>;
+          return <StyledPin><Pin bg="#FFFFFF"/></StyledPin>;
         }
 
         return (
           <StyledButton
             onClick={() => setLike(product)}
           >
-            Save
-            <StyledPin><Pin bg="#333333"/></StyledPin>
+            save
+            <StyledPin><Pin bg="#FFFFFF"/></StyledPin>
           </StyledButton>
         );
       }}
