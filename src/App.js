@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import CardsGrig from './components/CardsGrid/CardsGrid';
 import CardsGrigFromService from './components/CardsFromService/CardsFromService';
@@ -38,6 +38,9 @@ function App() {
         <Navbar categories={categories} /> 
         <MobileMenu categories={categories} />
         <main>
+          <Route exact path="/" render={() =>
+            <Redirect to="/rings"/>
+          }/>
           {categories.map(category =>
             <Route
               key={category.slug}
