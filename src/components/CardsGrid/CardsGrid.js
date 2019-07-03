@@ -20,7 +20,7 @@ const CardsGrid = ({ data }) => {
   if (!data) {
     return null;
   }
-console.log('daa', data);
+
   return (
     <StyledSection>
       {data.map((product, i) =>
