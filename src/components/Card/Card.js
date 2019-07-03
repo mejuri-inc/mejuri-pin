@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledArticle = styled.article`
+  background-color: #f0f0f0;
   background-image: url('${props => props.bgImage}');
   background-position: center center;
   background-size: cover;
@@ -43,14 +44,14 @@ const StyledArticle = styled.article`
   }
 `;
 
-const Card = ({ children, name, variant_images }) => {
+const Card = ({ children, name, variant_images, variant = 1 }) => {
   if(!variant_images || variant_images.length < 1) {
     return null;
   }
 
   return (
     <StyledArticle
-      bgImage={variant_images[1].attachment_url_small}
+      bgImage={variant_images[variant].attachment_url_small}
       title={name}
     >
       {children}

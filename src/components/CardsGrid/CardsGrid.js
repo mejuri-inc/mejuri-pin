@@ -23,9 +23,9 @@ const CardsGrid = ({ data }) => {
 console.log('daa', data);
   return (
     <StyledSection>
-      {data.map(product =>
+      {data.map((product, i) =>
         <IsOnScreen minHeight="15rem" key={product.id}>
-          <Card {...product}>
+          <Card {...product} variant={i%2}>
             <LikeButton product={product} />
             <ExternalLink to={`https://mejuri.com/shop/products/${product.slug}`}>
               <Arrow fill="#FFFFFF" />mejuri.com
