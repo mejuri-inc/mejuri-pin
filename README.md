@@ -23,7 +23,6 @@ You can check the complete category page [here](https://mejuri.com/shop/t/type).
 - Bracelets: `http://mejuri-fe-challenge.s3-website-us-east-1.amazonaws.com/bracelets.json`
 - Necklaces: `http://mejuri-fe-challenge.s3-website-us-east-1.amazonaws.com/pendants.json`
 - Earrings: `http://mejuri-fe-challenge.s3-website-us-east-1.amazonaws.com/earrings.json`
-- Engagement: `http://mejuri-fe-challenge.s3-website-us-east-1.amazonaws.com/engagement.json`
 - Pendants: `http://mejuri-fe-challenge.s3-website-us-east-1.amazonaws.com/pendants.json`
 - Rings: `http://mejuri-fe-challenge.s3-website-us-east-1.amazonaws.com/rings.json`
 - Staking sets: `http://mejuri-fe-challenge.s3-website-us-east-1.amazonaws.com/stacking-sets.json`
