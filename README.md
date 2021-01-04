@@ -24,7 +24,6 @@ You can check the complete category page [here](https://mejuri.com/shop/t/type).
 - Earrings: `http://mejuri-fe-challenge.s3-website-us-east-1.amazonaws.com/earrings.json`
 - Pendants: `http://mejuri-fe-challenge.s3-website-us-east-1.amazonaws.com/pendants.json`
 - Rings: `http://mejuri-fe-challenge.s3-website-us-east-1.amazonaws.com/rings.json`
-- Staking sets: `http://mejuri-fe-challenge.s3-website-us-east-1.amazonaws.com/stacking-sets.json`
 
 ### Your app should be able to
 - Read the data from the json sources.
